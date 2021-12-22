@@ -1,5 +1,6 @@
 import styles from '../styles/Navbar.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 const Navbar = () => {
     return (
         <div className={styles.container}>
@@ -14,19 +15,35 @@ const Navbar = () => {
             </div>
             <div className={styles.item}>
                 <ul className={styles.list}>
-                    <li className={styles.listItem}>Home</li>
-                    <li className={styles.listItem}>Products</li>
+                    <li className={styles.listItem}>
+                        <Link href="/">
+                            <a>Home</a>
+                        </Link>
+                    </li>
+                    <li className={styles.listItem}>
+                        <Link href="/Product/1">
+                            <a>Product</a>
+                        </Link>
+                    </li>
                     <li className={styles.listItem}>Menu</li>
                     <Image src="/images/logo.png" width={160} height={69} />
                     <li className={styles.listItem}>Events</li>
-                    <li className={styles.listItem}>Blog</li>
+                    <li className={styles.listItem}>
+                        <Link href="/orders/1">
+                            <a>Orders</a>
+                        </Link>
+                    </li>
                     <li className={styles.listItem}>Contact</li>
                 </ul>
             </div>
             <div className={styles.item}>
                 <div className={styles.cart}>
-                    <Image src="/images/cart.png" width={30} height={30} />
-                    <div className={styles.counter}>2</div>
+                    <Link href="/cart">
+                        <a>
+                            <Image src="/images/cart.png" width={30} height={30} />
+                            <div className={styles.counter}>2</div>
+                        </a>
+                    </Link>
                 </div>
             </div>
         </div>
